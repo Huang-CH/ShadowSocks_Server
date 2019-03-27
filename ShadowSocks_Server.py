@@ -145,7 +145,6 @@ def stop_firewall():
     '''
     os.system('systemctl stop firewalld')
     os.system('systemctl disable firewalld')
-    os.system('')
 
 install_pip()
 install_shadowsocks()
