@@ -1,0 +1,2 @@
+# ShadowSocks_Server
+ShadowSocks服务端自动部署脚本
