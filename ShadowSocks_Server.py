@@ -10,7 +10,7 @@ def install_pip():
     :return:
     '''
     #更新系统
-    yum_update=os.system('yum -y update')
+    yum_update = os.system('yum -y update')
     if yum_update == 0:
         print('<!--- 系统更新成功 ---!>')
         time.sleep(1)
@@ -19,7 +19,7 @@ def install_pip():
         time.sleep(1)
 
     #安装epel扩展源
-    yum_epel=os.system('yum -y install epel-release')
+    yum_epel = os.system('yum -y install epel-release')
     if yum_epel == 0:
         print('<!--- epel扩展源安装成功 ---!>')
         time.sleep(1)
@@ -28,7 +28,7 @@ def install_pip():
         time.sleep(1)
 
     #安装pip
-    yum_pip=os.system('yum -y install python-pip')
+    yum_pip = os.system('yum -y install python-pip')
     if yum_pip == 0:
         print('<!--- pip安装成功 ---!>')
         time.sleep(1)
@@ -37,7 +37,7 @@ def install_pip():
         time.sleep(1)
 
     #清除cache
-    yum_clean_all=os.system('yum clean all')
+    yum_clean_all = os.system('yum clean all')
     if yum_clean_all == 0:
         print('<!--- 清除cache成功 ---!>')
         time.sleep(1)
@@ -46,7 +46,7 @@ def install_pip():
         time.sleep(1)
 
     #升级pip到最新版本
-    pip_upgrade=os.system('pip install --upgrade pip')
+    pip_upgrade = os.system('pip install --upgrade pip')
     if pip_upgrade == 0:
         print('<!--- 升级pip成功 ---!>')
         time.sleep(1)
@@ -70,15 +70,15 @@ def configuration_shadowsocks():
     #编辑shadowsocks.json配置文件
     with open(r'/etc/shadowsocks.json',mode='w') as f:
         f.write('''
-{
-    "server":"0.0.0.0",
-    "server_port":%s, 
-    "local_address":"127.0.0.1", 
-    "local_port":1080,
-    "password":"%s",
-    "timeout":30,
-    "method":"aes-256-cfb"
-}
+            {
+                "server":"0.0.0.0",
+                "server_port":%s, 
+                "local_address":"127.0.0.1", 
+                "local_port":1080,
+                "password":"%s",
+                "timeout":30,
+                "method":"aes-256-cfb"
+            }
     ''' %(server_port,user_password))
 
     #生成配置log
@@ -116,7 +116,7 @@ def receiving_service_port():
     '''
     while 1:
         print('=' * 50)
-        server_port=raw_input('请输入端口号（1025至65535任选一个）：').strip()
+        server_port = input('请输入端口号（1025至65535任选一个）：').strip()
         if server_port.isdigit():
             return server_port
             break
@@ -130,9 +130,9 @@ def receiving_user_password():
     '''
     while 1:
         print('=' * 50)
-        user_password=raw_input('请输入您的密码：').strip()
+        user_password = input('请输入您的密码：').strip()
         print('=' * 50)
-        user_password_confirm=raw_input('<!--- 您输入的密码为：%s ---!> 确认无误请输入“Y”,重新输入请安任意键:' %(user_password)).strip()
+        user_password_confirm = input('<!--- 您输入的密码为：%s ---!> 确认无误请输入“Y”,重新输入请安任意键:' %(user_password)).strip()
         print('=' * 50)
         if user_password_confirm == 'Y' or user_password_confirm == 'y':
             return user_password
@@ -148,8 +148,8 @@ def stop_firewall():
 
 install_pip()
 install_shadowsocks()
-server_port=receiving_service_port()
-user_password=receiving_user_password()
+server_port = receiving_service_port()
+user_password = receiving_user_password()
 configuration_shadowsocks()
 configuration_self_startup()
 stop_firewall()
