@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-#coding:utf-8
+# -*- coding:utf-8 -*-
+# 此脚本已在CentOS 7 上测试通过
+# 作者：H&C
 
 import os
 import time
