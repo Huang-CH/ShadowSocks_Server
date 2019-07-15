@@ -2,4 +2,4 @@
 ---
 >部署环境：CentOS 7,Python 3 <br>
 >将ShadowSocks_Server.py下载到服务器后，运行以下命令: <br>
-```python ShadowSocks_Server.py```
+```python python ShadowSocks_Server.py```
