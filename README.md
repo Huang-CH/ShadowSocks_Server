@@ -1,9 +1,5 @@
-# ShadowSocks_Server
-ShadowSocks服务端自动部署脚本
-
-部署环境：CentOS 7,Python 3
-
-下载ShadowSocks_Server.py后直接运行:
-```
-python ShadowSocks_Server.py
-```
+### 这是一个在CentOS 7服务端自动部署ShadowSocks的脚本
+---
+>部署环境：CentOS 7,Python 3 <br>
+>将ShadowSocks_Server.py下载到服务器后，运行以下命令: <br>
+```python ShadowSocks_Server.py```
